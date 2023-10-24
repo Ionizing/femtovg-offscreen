@@ -1,0 +1,18 @@
+[package]
+name = "femtovg-offscreen"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+femtovg = "0.7.1"
+image = "0.24.7"
+
+[target.'cfg(target_os="macos")'.dependencies]
+glutin-winit = "0.4.2"
+glutin = "0.29.1"
+winit = "0.29.2"
+
+[target.'cfg(not(target_os="macos"))'.dependencies]
+glutin = "0.31.0"
