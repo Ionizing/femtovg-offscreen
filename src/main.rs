@@ -94,6 +94,18 @@ fn main() {
     let (width, height) = (640, 480);
     canvas.set_size(width, height, 1.0);
     canvas.clear_rect(0, 0, 1920, 1080, Color::rgbf(0.9, 0.9, 0.9));
+    let mut p = Path::new();
+    p.rect(0.0, 0.0, width as _, height as _);
+    canvas.fill_path(
+        &mut p,
+        &Paint::linear_gradient(
+            0.0,
+            0.0,
+            width as _,
+            0.0,
+            Color::rgba(255, 0, 0, 255),
+            Color::rgba(0, 0, 255, 255),
+            ));
     canvas.flush();
 
     let screenshot = canvas.screenshot().unwrap();
